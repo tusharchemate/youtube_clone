@@ -6,12 +6,13 @@ import { fetchAPI } from '../utils/fetchAPI';
 // here we are showing feed with the side bar and typography
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState('New');
-
+  const [videos, setVideos] = useState(null);
   // implements useEffect for fetchAPI data
   useEffect(() => {
-    fetchAPI(`search?part=snippet&q=${selectedCategory}`);
+    fetchAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+      setVideos(data.items)
+    );
   }, [selectedCategory]);
-
   return (
     <Stack sx={{ flexDirection: { sx: 'Column', md: 'row' } }}>
       <Box
@@ -21,7 +22,10 @@ const Feed = () => {
           px: { sx: 0, md: 2 },
         }}
       >
-        <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <Sidebar
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         <Typography
           className="copyright"
           variant="body2"
@@ -42,7 +46,7 @@ const Feed = () => {
         </Typography>
 
         {/* added video componet to render videos */}
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
