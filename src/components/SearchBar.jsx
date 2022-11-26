@@ -11,7 +11,6 @@ const SearchBar = () => {
   const handleClick = (e) => {
     e.preventDefault();
     if (searchTerm) {
-      alert();
       navigate(`/search/${searchTerm}`);
       setSearchTerm('');
     }
