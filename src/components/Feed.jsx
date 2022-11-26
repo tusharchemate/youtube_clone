@@ -36,7 +36,7 @@ const Feed = () => {
         </Typography>
       </Box>
 
-      <Box p={2} sx={{ height: '90vh', flex: 2, overFlowY: 'auto' }}>
+      <Box p={2} sx={{ height: '90vh', flex: 2, overflowY: 'auto' }}>
         <Typography
           variant="h4"
           fontWeight="bold"
