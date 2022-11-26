@@ -2,7 +2,8 @@ import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import Sidebar from './Sidebar';
 
-const Feed = () => {
+// here we are showing feed with the side bar and typography
+const Feed = () => { 
   return (
     <Stack sx={{ flexDirection: { sx: 'Column', md: 'row' } }}>
       <Box
