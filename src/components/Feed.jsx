@@ -1,9 +1,10 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import Sidebar from './Sidebar';
+import Videos from './Videos';
 
 // here we are showing feed with the side bar and typography
-const Feed = () => { 
+const Feed = () => {
   return (
     <Stack sx={{ flexDirection: { sx: 'Column', md: 'row' } }}>
       <Box
@@ -21,6 +22,20 @@ const Feed = () => {
         >
           Copyright 2023 @Tech Tushar
         </Typography>
+      </Box>
+
+      <Box p={2} sx={{ height: '90vh', flex: 2, overFlowY: 'auto' }}>
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          mb={2}
+          sx={{ color: 'white' }}
+        >
+          New <span style={{ color: '#F31503' }}>Videos</span>
+        </Typography>
+
+        {/* added video componet to render videos */}
+        <Videos videos={[]} />
       </Box>
     </Stack>
   );
